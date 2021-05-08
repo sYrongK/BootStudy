@@ -23,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         제외하는거랑, 확인 후 허용하는 것(permitALl())은 다른 것
     
     configure(HttpSecurity)
-        : Interceptor로 요청을 안전하게 보호하는 방법 관련 설정
+        : 리소스 보안 부분 설정
+        Interceptor로 요청을 안전하게 보호하는 방법 관련 설정
         Interceptor가 인증 관련 처리를 할 때, Request별 허용 불허용 등의 처리를 할 수 있는거고.
     
     configure(AuthenticationManagerBuilder) 
@@ -31,12 +32,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+//        super.configure(http);
+        http
+                .authorizeRequests().antMatchers("/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .csrf().disable();
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        //  이 부분 좀
 //        web.ignoring().antMatchers("/static/**", "/resources/**");
         web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }

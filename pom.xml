@@ -11,7 +11,8 @@
     <groupId>com.study</groupId>
     <artifactId>BootStudy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <!--<packaging>war</packaging> --> <!--외장WAS를 쓰는 경우 war에 WEB-INF로-->
+    <packaging>jar</packaging><!--스프링부트 내장 WAS를 쓰는 경우 스프링부트 표준인 jar로-->
     <name>BootStudy</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -33,7 +34,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- Spring Boot 내장 서버(embedded web server)인 tomcat을 사용하지 않고,
+                다른 서버를 사용하려면,
+                기본 dependency에서 제외시키고,
+                사용하고자 하는 서버의 dependency를 추가해야 한다. -->
+
+            <!--Exclude the Tomcat dependency-->
+            <!--<exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
+        <!--Use Jetty instead-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>-->
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
