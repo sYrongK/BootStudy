@@ -1,1 +1,9 @@
+## Spring Boot 자동환경 설정시 필요한 설정 & 추가 설정들 관리 *.yml, *.properties
+## 클래스에서 value를 직접 바인딩해 사용할 수 있고, Class 파일로 사용할 수도 있다.
 
+#local
+server:
+  port: 8081
+syrongk:
+  jwt:
+    secret-key: 'syrongkjwttoken'

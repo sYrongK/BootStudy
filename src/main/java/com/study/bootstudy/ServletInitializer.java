@@ -19,9 +19,10 @@ Servlet Container 구성 : 서버와 통신하기 위한 설정들.
             ** Filter & Interceptor
                 Request URI를 통해 적용하고, HttpServletRequest와 HttpServletResponse를 파라미터로 사용 가능.
 */
-public class ServletInitializer extends SpringBootServletInitializer {
+//  extends SpringBootServletInitializer
+public class ServletInitializer {
 
-    @Override
+//    @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(BootStudyApplication.class);
     }

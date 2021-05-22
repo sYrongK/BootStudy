@@ -11,8 +11,9 @@
     <groupId>com.study</groupId>
     <artifactId>BootStudy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <!--<packaging>war</packaging> --> <!--외장WAS를 쓰는 경우 war에 WEB-INF로-->
-    <packaging>jar</packaging><!--스프링부트 내장 WAS를 쓰는 경우 스프링부트 표준인 jar로-->
+    <!--외장WAS를 쓰는 경우 war에 WEB-INF로-->
+    <!--스프링부트 내장 WAS를 쓰는 경우 스프링부트 표준인 jar로-->
+    <!--<packaging>war</packaging> -->
     <name>BootStudy</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -83,6 +84,18 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Json Web Token -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <!-- Class파일로 application.yml application.properties 설정 관리하기 위한 자동완성 기능 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
@@ -90,6 +103,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.6</version>
                 <configuration>
                     <excludes>
                         <exclude>

@@ -1,7 +1,10 @@
 package com.study.bootstudy;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
 /*
     스프링 부트 자동 환경설정
     jar은 스프링부트 자동설정 의존성에 따라 설정이 자동 적용된다. 의존성 버전 직접 안맞춰도 됨.
@@ -20,6 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 //exclude   excluedName scanBasePackages    scanBasePackagesClasses nameGenerator   proxyBeanMethods
 @SpringBootApplication(scanBasePackages = "com.study.bootstudy")
+@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
 public class BootStudyApplication {
 
     public static void main(String[] args) {
