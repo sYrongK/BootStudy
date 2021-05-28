@@ -3,12 +3,13 @@
 
 #local
 server:
-  port: 8081
+  port: 8084
 syrongk:
   jwt:
     secret-key: 'syrongkjwttoken'
-spring:
-  thymeleaf:
-    prefix: classpath:/templates
-    suffix: .html
-    cache: false
+#이걸 넣으니까 페이지가 안뜨네.
+#spring:
+#  thymeleaf:
+#    prefix: classpath:/templates
+#    suffix: .html
+#    cache: false

@@ -3,10 +3,12 @@ package com.study.bootstudy.common.config.security;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.AntPathMatcher;
 
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /*
@@ -34,12 +36,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http);
         http
-                .authorizeRequests().antMatchers("/login", "/sample/**").permitAll()
+                .authorizeRequests().antMatchers("/login/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/loginPage")
-                .loginProcessingUrl("/login/proccess")
+                .loginPage("/login")
+                .loginProcessingUrl("/login/manage")
                 .usernameParameter("id")
                 .passwordParameter("pwd")
                 .and()
