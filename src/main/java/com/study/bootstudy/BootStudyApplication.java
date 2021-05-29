@@ -23,7 +23,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  */
 //exclude   excluedName scanBasePackages    scanBasePackagesClasses nameGenerator   proxyBeanMethods
 @SpringBootApplication(scanBasePackages = "com.study.bootstudy")
-@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
+//@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
 public class BootStudyApplication {
 
     public static void main(String[] args) {

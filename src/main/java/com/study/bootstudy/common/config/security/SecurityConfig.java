@@ -36,7 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http);
         http
-                .authorizeRequests().antMatchers("/login/**").permitAll()
+                .authorizeRequests()    //httpServletRequest를 사용하는 요청들에 대한 접근 제한을 설정하겠다.
+                .antMatchers("/login/**", "/join/**", "/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -45,7 +46,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("id")
                 .passwordParameter("pwd")
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+                .headers().frameOptions().disable();    //  h2 웹 콘솔은 iframe 사용하기 떄문에 Header의 X-Frame-Options를 비활성화 해야한다
     }
 
     @Override
