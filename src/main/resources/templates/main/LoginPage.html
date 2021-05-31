@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <h3>loginPage</h3>
+    <h3>JoinPage</h3>
     <form>
         <label>아이디
             <input type="text" id="id"/>
@@ -23,10 +23,9 @@
 </body>
 </html>
 <script>
-    (function($) {
-
+    $(function() {
         $('#joinBtn').click(function(e){
-            console.log('ddd');
-        })
-    })(jQuery);
+            location.href = "join";
+        });
+    })
 </script>
